@@ -8,22 +8,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_dice_roller.*
+import kotlinx.android.synthetic.main.fragment_dice_roller.view.*
 
 class DiceRollerViewFragment: Fragment() {
 
+    var listener: ButtonListener? = null
+
+    interface ButtonListener{
+        fun rollButtonPressed()
+
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dice_roller, container, false)
+
+        view.rollButton.setOnClickListener {
+            listener?.rollButtonPressed()
+        }
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
-
-
 
 
         diceRollerFragmentView.layoutManager = LinearLayoutManager(this.activity)
