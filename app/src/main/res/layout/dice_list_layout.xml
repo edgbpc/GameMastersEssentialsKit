@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+>
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/diceRow1">
+            <TextView
+                    android:text="@string/d2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d2" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d2result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d2Result" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d4" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d4result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d4Result" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d6" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d6result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d6Result" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d8" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d8result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d8Result" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/diceRoll2">
+            <TextView
+                    android:text="@string/d10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d10" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d10result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d10Result" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d12" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d12result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d12Result" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d20" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d20result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d20Result" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d100" android:layout_weight="1"/>
+            <TextView
+                    android:text="@string/d100result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/d100Result" android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
