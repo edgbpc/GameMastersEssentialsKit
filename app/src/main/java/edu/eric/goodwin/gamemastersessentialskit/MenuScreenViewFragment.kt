@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_dice_roller.*
-import kotlinx.android.synthetic.main.fragment_dice_roller.view.*
-import kotlinx.android.synthetic.main.inital_screen.view.*
+import kotlinx.android.synthetic.main.menu_screen.view.*
 
 class MenuScreenViewFragment: Fragment() {
 
@@ -24,7 +21,7 @@ class MenuScreenViewFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var buttonClick = AlphaAnimation(1F, 0.1F)
 
-        val view = inflater.inflate(R.layout.inital_screen, container, false)
+        val view = inflater.inflate(R.layout.menu_screen, container, false)
 
 
 

@@ -1,11 +1,16 @@
 package edu.eric.goodwin.gamemastersessentialskit
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.NotificationManagerCompat
 import edu.eric.goodwin.gamemastersessentialskit.DiceRollerViewFragment.ButtonListener
 import kotlinx.android.synthetic.main.fragment_dice_roller.*
 
 class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener, MenuScreenViewFragment.ButtonListener {
+
+
+
 
     override fun diceRollerButtonPressed() {
 
@@ -62,6 +67,7 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
 
         if (d20EditTextBox.text.toString() != "") {
             diceRollingModel.qtyArray.set(6, d20EditTextBox.text.toString().toInt())
+
         } else {
             diceRollingModel.qtyArray.set(6, 0)
         }
@@ -73,6 +79,15 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
         }
 
         diceRollingModel.calculateDiceRollsResults()
+
+        diceRollingModel.d20Result = 1
+
+        if (diceRollingModel.d20Result == 20 && diceRollingModel.qtyArray[6] == 1){
+            createNotification(true)
+
+        } else if ((diceRollingModel.d20Result == 1 && diceRollingModel.qtyArray[6] == 1)){
+            createNotification(false)
+        }
 
         d2ResultsView.text = "Total: " + diceRollingModel.d2Result.toString()
         d4ResultsView.text = "Total: " +  diceRollingModel.d4Result.toString()
@@ -102,12 +117,39 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
 
     private var diceRollerViewFragment: DiceRollerViewFragment? = null
     private var menuScreenViewFragment: MenuScreenViewFragment? = null
-
     private lateinit var diceRollingModel: DiceRollerModel
+    private val generator = NotificationGenerator()
+
+    private fun createNotification(success: Boolean) {
+        if (success) {
+            val title: String = "Critical Success!"
+            val body = "You've Rolled A Natural 20! Automatic Success!"
+            val notification = generator.buildNotificationWith(this, title, body)
+            val notificationIntent = Intent(this, MyNotificationPublisher::class.java)
+            notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1)
+            notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification)
+            NotificationManagerCompat.from(this).apply { notify(1, notification) }
+
+
+        } else {
+            val title: String = "Critical FAILURE!"
+            val body = "You've Rolled A Natural 1! Automatic FAILURE"
+            val notification = generator.buildNotificationWith(this, title, body)
+            val notificationIntent = Intent(this, MyNotificationPublisher::class.java)
+            notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1)
+            notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification)
+            NotificationManagerCompat.from(this).apply { notify(1, notification) }
+
+
+        }
+
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        generator.createNotificationChannel(this)
 
         diceRollingModel = DiceRollerModel(this)
 

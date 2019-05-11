@@ -29,4 +29,6 @@
     <string name="allresultsview">Total :</string>
     <string name="dice_roller">Dice Roller</string>
     <string name="gm_logo">GM Logo</string>
+    <string name="channel_name">GM Kit</string>
+    <string name="monster_list">Monster List</string>
 </resources>
