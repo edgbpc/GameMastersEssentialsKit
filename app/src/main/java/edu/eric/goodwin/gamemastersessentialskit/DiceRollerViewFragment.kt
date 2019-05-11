@@ -1,5 +1,8 @@
 package edu.eric.goodwin.gamemastersessentialskit
 
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,12 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_dice_roller.*
 import kotlinx.android.synthetic.main.fragment_dice_roller.view.*
 
 
 class DiceRollerViewFragment: Fragment() {
+
+
 
     var listener: ButtonListener? = null
 
@@ -22,14 +29,22 @@ class DiceRollerViewFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var buttonClick = AlphaAnimation(1F, 0.1F)
+
         val view = inflater.inflate(R.layout.fragment_dice_roller, container, false)
 
+
+
         view.rollButton.setOnClickListener {
+            it.startAnimation(buttonClick)
             listener?.rollButtonPressed()
+
         }
 
         return view
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

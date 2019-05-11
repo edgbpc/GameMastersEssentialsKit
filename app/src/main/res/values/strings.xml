@@ -27,4 +27,6 @@
     <string name="d20resultsview">Total :</string>
     <string name="d100resultsview">Total :</string>
     <string name="allresultsview">Total :</string>
+    <string name="dice_roller">Dice Roller</string>
+    <string name="gm_logo">GM Logo</string>
 </resources>

@@ -161,10 +161,14 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <Button
+
+            <Button android:theme="@style/CustomButtonTheme"
                     android:text="@string/roll"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/rollButton" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rollButton" android:layout_weight="1"/>
+
+
             <TextView
                     android:text="@string/allresultsview"
                     android:layout_width="0dp"
