@@ -69,6 +69,8 @@ class MainActivity : AppCompatActivity(), ButtonListener {
 
         diceRollingModel = DiceRollerModel(this)
 
+        diceRollingModel.persistence.addRow(DiceRolls(null, 0, 0, 1, 3, 2, 12, 0, 0,
+            1, 5, 2, 18, 1, 20, 1, 100))
 
 
         diceRollerViewFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? DiceRollerViewFragment
