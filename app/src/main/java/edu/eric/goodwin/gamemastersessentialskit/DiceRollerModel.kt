@@ -19,27 +19,18 @@ class DiceRollerModel (context: Context){
 
     var qtyArray = arrayOf<Int>(0, 0, 0, 0, 0, 0, 0, 0)
 
-    var d2Result = 1
-    var d4Result = 0
-    var d6Result = 0
-    var d8Result = 0
-    var d10Result = 0
-    var d12Result = 0
-    var d20Result = 0
-    var d100Result = 0
+    var d2Result: Int = 1
+    var d4Result: Int = 0
+    var d6Result: Int = 0
+    var d8Result: Int = 0
+    var d10Result: Int = 0
+    var d12Result: Int = 0
+    var d20Result: Int = 0
+    var d100Result: Int = 0
 
     var totalResult = 0
 
-    val d2 = 2
-    val d4 = 4
-    val d6 = 6
-    val d8 = 8
-    val d10 = 10
-    val d12 = 12
-    val d20 = 20
-    val d100 = 100
-
-    fun randomRoll(dice: Int, qty: Int): Int {
+       fun randomRoll(dice: Int, qty: Int): Int {
         var total = 0
 
         for (i in 1..qty) {

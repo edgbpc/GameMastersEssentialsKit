@@ -60,7 +60,7 @@ class DiceRollsPersistence(private val dbHelper: DBHelper ) {
             try {
                 insertOrThrow(
                     DiceRollsSchema.TABLE_NAME,
-                    DiceRollsSchema.Cols.d2Qty to d2Qty, DiceRollsSchema.Cols.d2Result to d2Result,
+                    DiceRollsSchema.Cols.d2Qty to list.d2Qty, DiceRollsSchema.Cols.d2Result to list.d2Result,
                     DiceRollsSchema.Cols.d4Qty to list.d4Qty, DiceRollsSchema.Cols.d4Result to list.d4Result,
                     DiceRollsSchema.Cols.d6Qty to list.d6Qty, DiceRollsSchema.Cols.d6Result to list.d6Result,
                     DiceRollsSchema.Cols.d8Qty to list.d8Qty, DiceRollsSchema.Cols.d8Result to list.d8Result,
