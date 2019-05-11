@@ -40,6 +40,10 @@ class DiceRollerViewFragment: Fragment() {
 
     }
 
+    fun updateData(){
+        diceRollerFragmentView.adapter = DiceRollerAdapter(DiceRollerModel(activity!!).persistence.getAllLists())
+    }
+
     inner class DiceRollerAdapter(val data: List<DiceRolls>): RecyclerView.Adapter<DiceRollerAdapter.DiceRollerHolder>(){
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiceRollerHolder {
             val inflater = LayoutInflater.from(activity)

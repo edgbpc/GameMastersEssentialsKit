@@ -2,6 +2,7 @@ package edu.eric.goodwin.gamemastersessentialskit.database
 
 import android.database.sqlite.SQLiteConstraintException
 import edu.eric.goodwin.gamemastersessentialskit.DiceRolls
+import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.ID
 import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.d100Qty
 import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.d100Result
 import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.d10Qty
@@ -19,6 +20,7 @@ import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.d
 import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.d8Qty
 import edu.eric.goodwin.gamemastersessentialskit.database.DiceRollsSchema.Cols.d8Result
 import org.jetbrains.anko.db.MapRowParser
+import org.jetbrains.anko.db.SqlOrderDirection
 import org.jetbrains.anko.db.insertOrThrow
 import org.jetbrains.anko.db.select
 
@@ -27,6 +29,8 @@ class DiceRollsPersistence(private val dbHelper: DBHelper ) {
     fun getAllLists(): List<DiceRolls>{
         return dbHelper.use {
             select(DiceRollsSchema.TABLE_NAME)
+            .orderBy(ID, SqlOrderDirection.DESC)
+            .limit(10)
             .parseList(object: MapRowParser<DiceRolls>{
             override fun parseRow(columns: Map<String, Any?>): DiceRolls {
                 val ID = columns.get(DiceRollsSchema.Cols.ID) as Number
@@ -52,6 +56,7 @@ class DiceRollsPersistence(private val dbHelper: DBHelper ) {
 
             }
         })
+
         }
     }
 

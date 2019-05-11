@@ -18,4 +18,13 @@
     <string name="d100result">d100Result</string>
     <string name="d10">d10</string>
     <string name="d12">d12</string>
+    <string name="d2resultsview">Total :</string>
+    <string name="d4resultsview">Total :</string>
+    <string name="d6resultsview">Total :</string>
+    <string name="d8resultsview">Total :</string>
+    <string name="d10resultsview">Total :</string>
+    <string name="d12resultsview">Total :</string>
+    <string name="d20resultsview">Total :</string>
+    <string name="d100resultsview">Total :</string>
+    <string name="allresultsview">Total :</string>
 </resources>

@@ -19,7 +19,7 @@ class DiceRollerModel (context: Context){
 
     var qtyArray = arrayOf<Int>(0, 0, 0, 0, 0, 0, 0, 0)
 
-    var d2Result: Int = 1
+    var d2Result: Int = 0
     var d4Result: Int = 0
     var d6Result: Int = 0
     var d8Result: Int = 0
@@ -35,7 +35,6 @@ class DiceRollerModel (context: Context){
 
         for (i in 1..qty) {
             total += (1..dice).random()
-            Log.d("dice roller", "dice roll - " + total)
         }
         return total
     }
