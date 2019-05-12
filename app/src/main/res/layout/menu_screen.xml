@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/diceRollerButton"/>
     <Button
+            android:theme="@style/CustomButtonTheme"
             android:text="@string/monster_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/monsterListButton"/>

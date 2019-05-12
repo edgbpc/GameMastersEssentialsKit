@@ -25,6 +25,12 @@ class DBHelper(context: Context): ManagedSQLiteOpenHelper(context, DB_NAME, null
             DiceRollsSchema.Cols.d100Qty to INTEGER,
             DiceRollsSchema.Cols.d100Result to INTEGER
         )
+        db?.createTable(MonsterListSchema.TABLE_NAME, true,
+            MonsterListSchema.Cols.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            MonsterListSchema.Cols.NAME to TEXT,
+            MonsterListSchema.Cols.URL to TEXT
+            )
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

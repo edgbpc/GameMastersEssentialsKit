@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.app.NotificationManagerCompat
 import edu.eric.goodwin.gamemastersessentialskit.DiceRollerViewFragment.ButtonListener
 import kotlinx.android.synthetic.main.fragment_dice_roller.*
+import kotlinx.android.synthetic.main.fragment_monster_list.*
 
 class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener, MenuScreenViewFragment.ButtonListener {
 
@@ -13,7 +14,6 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
 
 
     override fun diceRollerButtonPressed() {
-
         diceRollerViewFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? DiceRollerViewFragment
         if (diceRollerViewFragment == null){
             diceRollerViewFragment = DiceRollerViewFragment()
@@ -24,6 +24,21 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
         }
 
         diceRollerViewFragment?.listener = this
+
+    }
+
+    override fun monsterListButtonPressed() {
+        monsterListViewFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? MonsterListViewFragment
+        if (monsterListViewFragment == null) {
+            monsterListViewFragment = MonsterListViewFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, monsterListViewFragment!!)
+                .addToBackStack(null)
+                .commit()
+        }
+
+
+
 
     }
 
@@ -117,7 +132,9 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
 
     private var diceRollerViewFragment: DiceRollerViewFragment? = null
     private var menuScreenViewFragment: MenuScreenViewFragment? = null
+    private var monsterListViewFragment: MonsterListViewFragment? = null
     private lateinit var diceRollingModel: DiceRollerModel
+    private lateinit var monsterListModel: MonsterListModel
     private val generator = NotificationGenerator()
 
     private fun createNotification(success: Boolean) {
@@ -152,6 +169,7 @@ class MainActivity : AppCompatActivity(), DiceRollerViewFragment.ButtonListener,
         generator.createNotificationChannel(this)
 
         diceRollingModel = DiceRollerModel(this)
+        monsterListModel = MonsterListModel(this)
 
         menuScreenViewFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainer) as? MenuScreenViewFragment

@@ -31,4 +31,5 @@
     <string name="gm_logo">GM Logo</string>
     <string name="channel_name">GM Kit</string>
     <string name="monster_list">Monster List</string>
+    <string name="monster">monster</string>
 </resources>

@@ -15,6 +15,7 @@ class MenuScreenViewFragment: Fragment() {
 
     interface ButtonListener{
         fun diceRollerButtonPressed()
+        fun monsterListButtonPressed()
 
     }
 
@@ -29,6 +30,11 @@ class MenuScreenViewFragment: Fragment() {
             it.startAnimation(buttonClick)
             listener?.diceRollerButtonPressed()
 
+        }
+
+        view.monsterListButton.setOnClickListener {
+            it.startAnimation(buttonClick)
+            listener?.monsterListButtonPressed()
         }
 
         return view

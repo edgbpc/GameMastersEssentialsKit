@@ -16,7 +16,7 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/diceRow1">
+                android:layout_height="wrap_content" android:id="@+id/diceRol1">
             <TextView
                     android:text="@string/d2"
                     android:layout_width="wrap_content"
